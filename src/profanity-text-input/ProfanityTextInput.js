@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   paper: {
     display: "flex",
     flexDirection: "column",
-    padding: 5,
+    padding: 8,
   },
   bottomContainer: {
     display: "flex",
@@ -32,17 +32,20 @@ const ProfanityTextInput = () => {
   const [text, setText] = React.useState("");
 
   useEffect(() => {
-    setText(profanityResult.censored_content);
+    if (profanityResult && profanityResult.censored_content) {
+      const textWithNewLines = profanityResult.censored_content.replaceAll("+#*#+", "\n")
+      setText(textWithNewLines)
+    }
   }, [profanityResult]);
 
   const detectProfanity = async () => {
     const myHeaders = new Headers();
     myHeaders.append("apikey", APIkey);
-
+    const textWithoutNewLines = text.replaceAll(/(\r\n|\n|\r)/gm, "+#*#+");
     return fetch("https://api.promptapi.com/bad_words?censor_character=*", {
       headers: myHeaders,
       method: "POST",
-      body: text,
+      body: textWithoutNewLines,
     }).then((response) => {
       if (response.ok) {
         return response.json().then((json) => json);
