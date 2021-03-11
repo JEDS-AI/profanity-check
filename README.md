@@ -3,7 +3,7 @@
 ## Description
 This project shows how you can filter text for bad words using an existing API.
 
-You can find the blog post to this project [here](https://jeds-ai.com/how-to-generate-image-tags-automatically/).
+You can find the blog post to this project [here](https://jeds-ai.com/how-to-filter-text-for-bad-words-profanity-check/).
 
 In order to get the project running you should insert your Google API-key in the ProfanityTextInput.js file.
 
