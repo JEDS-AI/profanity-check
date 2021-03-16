@@ -1,5 +1,7 @@
 # Profanity check
 
+![alt text](https://i1.wp.com/jeds-ai.com/wp-content/uploads/2021/03/profanity-check-result.gif)
+
 ## Description
 This project shows how you can filter text for bad words using an existing API.
 
